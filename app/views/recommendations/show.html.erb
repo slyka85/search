@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @recommendation.title %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @recommendation.location %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @recommendation.category %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @recommendation.description %>
+</p>
+
+  <% if @recommendation.image.file? %>
+<p>
+  <strong>Image Uploaded:</strong>
+  <%= image_tag @recommendation.image.url(:medium) %>
+</p>
+  <% elsif @recommendation.imageUrl.blank? %>
+<p>
+  <strong>Imageurl:</strong>
+  <img src="http://i.imgur.com/Febvvif.png">
+</p>
+<% else %>
+<p>
+  <strong>Imageurl:</strong>
+  <img src="<%= @recommendation.imageUrl %>" height="200" width="300">
+</p>
+  <% end %>
+
+
+
+
+<%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
+<%= link_to 'Back', recommendations_path %>

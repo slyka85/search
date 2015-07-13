@@ -1,0 +1,19 @@
+<h1> Search Results</h1>
+
+<% if @search.search_recommendations.empty? %>
+	<p> Sorry, no results </p>
+<% else %>
+	<% @search.search_recommendations.each do |s| %>
+	<br>
+
+	<div class="results"> 
+		<h4> Title: <%= s.title %></h4>
+		<p> Category: <%= s.category %></p>
+		<p> Description: <%= s.description %></p>
+		<img src="<%= s.imageUrl%>" height="300" width="300">
+	</div>
+
+	<% end %>
+<% end %>
+
+<p><%= link_to "Back", new_search_path %></p>
